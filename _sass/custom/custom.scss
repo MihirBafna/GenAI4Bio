@@ -187,12 +187,39 @@ summary {
 }
 
 .theme-toggle-wrap {
+}
+
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: $sp-2 $sp-3;
+  // background: #fff;
+  // border: none;
+  // border-radius: $border-radius;
+  // box-shadow: 0 4px 14px rgba(0, 0, 0, 0.5);
+
+  &:hover,
+  &:focus,
+  &:active {
+    background: transparent;
+    box-shadow: none;
+    outline: none;
+  }
+}
+
+.theme-toggle-icon {
+  color: $link-color;
+  font-size: 1.3rem;
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.theme-toggle-wrap {
   position: fixed;
   bottom: $sp-4;
   right: $sp-4;
   z-index: 1000;
-}
-
-.theme-toggle {
-  @extend .btn, .btn-outline;
 }

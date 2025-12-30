@@ -1,5 +1,7 @@
 <div class="theme-toggle-wrap">
-  <button id="theme-toggle" class="btn theme-toggle" type="button">Toggle theme</button>
+  <a id="theme-toggle" class="theme-toggle" role="button" aria-label="Toggle dark mode" href="#">
+    <span class="theme-toggle-icon" aria-hidden="true"><i class="fa fa-sun-o"></i></span>
+  </a>
 </div>
 
 <script>
@@ -7,17 +9,19 @@
   var storageKey = 'jtd-theme';
   var darkLink = document.getElementById('jtd-dark-theme');
   var btn = document.getElementById('theme-toggle');
+  var icon = btn && btn.querySelector('.theme-toggle-icon');
   if (!btn || !darkLink) return;
 
   function setTheme(mode) {
     var isDark = mode === 'dark';
     darkLink.disabled = !isDark;
-    if (isDark) {
-      document.documentElement.setAttribute('data-theme', 'dark');
+    document.documentElement.toggleAttribute('data-theme', isDark);
+    if (icon) {
+      icon.innerHTML = isDark ? '<i class="fa fa-sun-o"></i>' : '<i class="fa fa-moon-o"></i>';
     } else {
-      document.documentElement.removeAttribute('data-theme');
+      btn.textContent = isDark ? 'Light mode' : 'Dark mode';
     }
-    btn.textContent = isDark ? 'Light mode' : 'Dark mode';
+    btn.setAttribute('aria-label', isDark ? 'Switch to light mode' : 'Switch to dark mode');
     localStorage.setItem(storageKey, mode);
   }
 
@@ -25,7 +29,8 @@
   var preferred = stored ? stored : (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
   setTheme(preferred);
 
-  btn.addEventListener('click', function() {
+  btn.addEventListener('click', function(e) {
+    e.preventDefault();
     var isDark = !darkLink.disabled;
     setTheme(isDark ? 'light' : 'dark');
   });

@@ -13,7 +13,7 @@
 # you will see them accessed via {{ site.title }}, {{ site.github_repo }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
-title: 6.7810 <br> GenAI for Bio
+title: 6.8710 <br> GenAI for Bio
 tagline: MIT TQE Course 6.7810 (Generative AI for Biology)
 description: MIT TQE Course 6.7810 (Generative AI for Biology)
 author: Mihir Bafna

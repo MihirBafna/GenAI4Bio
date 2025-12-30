@@ -22,6 +22,7 @@ permalink: /
 
 ---
 
+
 ## About
 Covers the recent advances in computational biology brought about by modern machine learning and artificial intelligence, and in particular Generative AI. This course will center on a detailed understanding of generative AI models and will discuss representative applications to biology. Students will build and use a variety of deep learning models (e.g., VAEs, transformers, diffusion models) in the context of biological problems. This course is intended for students who are interested in the intersection of machine learning and biology but may have previous experience in only one of these topics. Problem sets throughout the semester will provide written and practical experience with model design and training. The course will culminate in a final project in which students will work in groups to apply generative AI to a novel problem in the life sciences. Builds on biology concepts from 6.8700/20.S900, but can be taken independently. Graduate subjects will include additional work on problem sets.
 
