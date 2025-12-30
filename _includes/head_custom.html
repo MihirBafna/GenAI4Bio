@@ -1,7 +1,8 @@
-{%- comment -%}
-Inject optional dark theme stylesheet and initialize to the user's stored or preferred mode.
-{%- endcomment -%}
+
 <link id="jtd-dark-theme" rel="stylesheet" href="{{ '/assets/css/just-the-docs-dark.css' | relative_url }}" disabled>
+<link rel="stylesheet" href="https://unpkg.com/tippy.js@6/dist/tippy.css">
+<script src="https://unpkg.com/@popperjs/core@2" defer></script>
+<script src="https://unpkg.com/tippy.js@6" defer></script>
 <script>
 (function() {
   var storageKey = 'jtd-theme';
@@ -16,5 +17,45 @@ Inject optional dark theme stylesheet and initialize to the user's stored or pre
     darkLink.disabled = false;
     document.documentElement.setAttribute('data-theme', 'dark');
   }
+})();
+</script>
+<script>
+(function() {
+  var linkConfigs = [
+    { href: '{{ site.canvas }}', title: 'Canvas', img: '{{ "/assets/images/canvas.png" | relative_url }}' },
+    { href: '{{ site.gradescope }}', title: 'Gradescope', img: '{{ "/assets/images/gradescope.png" | relative_url }}' },
+    { href: '{{ site.piazza }}', title: 'Piazza', img: '{{ "/assets/images/piazza.png" | relative_url }}' }
+  ];
+
+  document.addEventListener('DOMContentLoaded', function() {
+    linkConfigs.forEach(function(cfg) {
+      var links = document.querySelectorAll('.aux-nav a[href="' + cfg.href + '"]');
+      links.forEach(function(link) {
+        link.textContent = '';
+        link.title = cfg.title;
+        link.setAttribute('aria-label', cfg.title);
+        link.setAttribute('data-tippy-content', cfg.title);
+        link.classList.add('aux-icon-link');
+
+        var img = document.createElement('img');
+        img.src = cfg.img;
+        img.alt = cfg.title;
+        img.classList.add('aux-icon-img');
+        link.appendChild(img);
+
+        var li = link.closest('li');
+        if (li) li.classList.add('aux-icon');
+      });
+    });
+
+    if (window.tippy) {
+      tippy('.aux-icon a', {
+        placement: 'bottom',
+        theme: 'light-border',
+        arrow: true,
+        animation: 'shift-away',
+      });
+    }
+  });
 })();
 </script>
