@@ -19,7 +19,11 @@ description: MIT TQE Course 6.7810 (Generative AI for Biology)
 author: Mihir Bafna
 baseurl: '/genai4bio' # the subpath of your site, e.g. /blog
 url: 'https://bergerlab.github.io/' # the base hostname & protocol for your site, e.g. http://example.com
-exclude: ["Gemfile", "Gemfile.lock", "LICENSE"]
+exclude:
+  - "Gemfile"
+  - "Gemfile.lock"
+  - "LICENSE"
+  - "vendor"
 
 canvas: &canvas_url https://canvas.mit.edu/your-course
 gradescope: &gradescope_url https://www.gradescope.com/courses/123456
