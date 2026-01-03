@@ -1,0 +1,106 @@
+$dna-rotate-time: 4s;
+$dna-rotate-delay: 0.15s;
+$dna-lines-color: rgba($accent-color, 0);
+$dna-dots-color: $accent-color;
+$dna-columns: 30;
+
+.dna-hero {
+  position: relative;
+  margin: $sp-5 0 $sp-6;
+  padding: $sp-5 0;
+  background: transparent;
+  color: inherit;
+  overflow: hidden;
+  border-radius: $border-radius;
+  box-shadow: none;
+
+  @include mq(md) {
+    margin-top: $sp-5;
+  }
+}
+
+.dna-hero__inner {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dna-hero__label {
+  position: absolute;
+  z-index: 2;
+  font-size: clamp(1.4rem, calc(2vw + 0.4rem), 2rem);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: inherit;
+  text-shadow: 0 0 8px rgba(0, 0, 0, 0.25);
+  pointer-events: none;
+}
+
+.dna-hero #dna {
+  position: relative;
+  width: min(520px, 100%);
+  height: 160px;
+  perspective: 1000px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.dna-hero #dna div {
+  position: relative;
+  width: 2px;
+  height: 110px;
+  background-color: $dna-lines-color;
+  transform-style: preserve-3d;
+  animation: dna-rotation $dna-rotate-time linear infinite;
+}
+
+.dna-hero #dna div::before,
+.dna-hero #dna div::after {
+  content: "";
+  position: absolute;
+  left: -4px;
+  right: -4px;
+  height: 10px;
+  background-color: $dna-dots-color;
+  border-radius: 6px;
+  animation: dna-rotation $dna-rotate-time linear infinite reverse;
+  z-index: 1;
+  box-shadow: none;
+}
+
+.dna-hero #dna div::before {
+  top: -8px;
+}
+
+.dna-hero #dna div::after {
+  bottom: -8px;
+}
+
+@for $i from 1 through $dna-columns {
+  $delay: ($i * $dna-rotate-delay) - 60s;
+
+  .dna-hero #dna div:nth-child(#{$i}) {
+    animation-delay: $delay;
+  }
+
+  .dna-hero #dna div:nth-child(#{$i})::before {
+    animation-delay: $delay;
+  }
+
+  .dna-hero #dna div:nth-child(#{$i})::after {
+    animation-delay: $delay;
+  }
+}
+
+@keyframes dna-rotation {
+  from {
+    transform: rotateX(0deg);
+  }
+
+  to {
+    transform: rotateX(359deg);
+  }
+}
