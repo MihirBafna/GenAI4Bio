@@ -2,8 +2,16 @@
 <link id="jtd-dark-theme" rel="stylesheet" href="{{ '/assets/css/just-the-docs-dark.css' | relative_url }}" disabled>
 <link rel="stylesheet" href="{{ '/assets/font-awesome-4.7.0/css/font-awesome.min.css' | relative_url }}">
 <link rel="stylesheet" href="https://unpkg.com/tippy.js@6/dist/tippy.css">
+<link rel="icon" type="image/png" sizes="32x32" href="{{ '/assets/images/eecs.png' | relative_url }}">
+<link rel="apple-touch-icon" href="{{ '/assets/images/eecs.png' | relative_url }}">
 <script src="https://unpkg.com/@popperjs/core@2" defer></script>
 <script src="https://unpkg.com/tippy.js@6" defer></script>
+<script>
+  // Force tab title to always show course number
+  document.addEventListener('DOMContentLoaded', function() {
+    document.title = '6.8710';
+  });
+</script>
 <script>
 (function() {
   var storageKey = 'jtd-theme';

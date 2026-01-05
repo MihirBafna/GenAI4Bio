@@ -6,7 +6,7 @@ description: >-
 permalink: /
 ---
 
-<!-- {% include dna.html %} -->
+{% include dna.html %}
 
 <!-- <div class="about-hero"> -->
   <!-- <img src="{{ '/assets/images/' | relative_url }}" alt="Course banner image"> -->

@@ -105,6 +105,20 @@ summary {
   color: inherit !important;
 }
 
+.site-title {
+  display: inline-flex;
+  align-items: center;
+  gap: $sp-2;
+
+  &::before {
+    content: "";
+    display: inline-block;
+    width: 26px;
+    height: 26px;
+    background: url("../images/eecs.png") center center / contain no-repeat;
+  }
+}
+
 .aux-nav,
 .aux-nav-list,
 .aux-nav-list-item {

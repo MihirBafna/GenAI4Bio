@@ -13,7 +13,7 @@
 # you will see them accessed via {{ site.title }}, {{ site.github_repo }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
-title: 6.8710 <br> GenAI for Bio
+title: '6.8710' 
 tagline: MIT TQE Course 6.7810 (Generative AI for Biology)
 description: MIT TQE Course 6.7810 (Generative AI for Biology)
 author: Mihir Bafna
@@ -43,7 +43,9 @@ aux_links:
     - *gradescope_url
   Piazza:
     - *piazza_url
-footer_content:
+footer_content: >
+  Inspired by <a href="https://gradml.mit.edu" target="_blank" rel="noopener">gradml.mit.edu</a>
+  · Built with <a href="https://just-the-docs.github.io/just-the-docs/" target="_blank" rel="noopener">Just the Docs</a>
 
 # Collections for website data
 collections:
