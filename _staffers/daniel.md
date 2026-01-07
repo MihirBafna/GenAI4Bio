@@ -1,7 +1,7 @@
 ---
 name: Daniel Lazarev
 role: Teaching Assistant
-email: me@example.com
-website: https://kevinl.info
-photo: kevin.jpg
+email: dlazarev@mit.edu
+website: blank
+photo: daniellazarev.jpeg
 ---
